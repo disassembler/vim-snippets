@@ -1,0 +1,77 @@
+# sugguestion? report bugs? 
+# go to https://github.com/chrisyue/vim-snippets/issues
+snippet ControllerBase "Drupal Base Controller" b
+<?php
+/**
+ * @file
+ * Contains \Drupal\\${1:module}\Controller\\`!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()`.
+ */
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+${2:use statements}
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * ${3}.
+ */
+class `!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()
+` extends ControllerBase implements ContainerInjectionInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('${4:service}')
+    );
+  }
+
+  /**
+   * Constructs an object.
+   * ${5}
+   */
+  public function __construct(${6:params}) {
+	${7}
+  }
+endsnippet
+
+snippet FormBase "Drupal Base Controller" b
+<?php
+/**
+ * @file
+ * Contains \Drupal\\${1:module}\Controller\\`!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()`.
+ */
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+${2:use statements}
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * ${3}.
+ */
+class `!p
+snip.rv = re.match(r'.*(?=\.)', fn).group()
+` extends FormBase implements ContainerInjectionInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('${4:service}')
+    );
+  }
+
+  /**
+   * Constructs an object.
+   * ${5}
+   */
+  public function __construct(${6:params}) {
+	${7}
+  }
+endsnippet
